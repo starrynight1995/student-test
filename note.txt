@@ -1,0 +1,77 @@
+servlet生命周期：
+
+服务启动以后，servlet第一次被访问，服务器会调用init方法，用来初始化servlet对象，该方法只会调用一次
+
+然后调用service方法，用来处理各种业务操作，该方法被反复调用
+
+当服务停止，会调用Destroy方法，用来销毁servlet对象
+
+
+
+一、请求转发
+IncludeServlet1/2
+客户端-》1—-》2—-》1—-客户端
+（显示资源1、2的内容 同一个请求）
+
+二、跳转（实用）
+1、服务器端跳转
+ForwordServlet1/2
+客户端-》1-》2-》客户端
+(完全显示资源2的内容 同一个请求)
+
+2、客户端跳转
+RedirectServlet1/2
+客户端-》1-》客户端-》2-》客户端
+(完全显示资源2的内容 不同请求)
+使用场景：
+添加、修改、删除、登录、退出
+
+
+访问添加页面使用addInput
+添加页面提交的请求访问add方法
+访问修改页面使用updateInput方法
+修改页面提交的请求发放稳update方法
+
+
+	JSP内置对象x9---------------------------------Servlet对象
+out 页面输出对象 								PrintWrite
+pageContext 页面上下文对象
+request 请求对象								HttpServletRequest*
+response 响应对象								HttpServletResponse*
+session 会话									HttpSession*
+application 系统上下文							ServletContext*
+config 初始化对象								ServletConfig
+page 页面对象									Object
+error 异常对象								Exception
+
+
+
+注意：
+WEB-INF文件对外隐藏（服务器端访问）
+JSP文件实际编译为Servlet，目录：
+F:\17临时授课\apache-tomcat-7.0.73\work\Catalina\localhost\Jdbc_Test\org\apache\jsp
+
+Cookie
+在Http中Cookie是服务器给浏览器的一个小文件，保存服务器的一些小信息
+
+栈内存
+堆内存
+静态域
+缓存区
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
